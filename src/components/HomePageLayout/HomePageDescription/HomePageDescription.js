@@ -1,7 +1,7 @@
 const HomePageDescription = () => {
   return (
     <div>
-      <h3>Best choice</h3>
+      <h2>Why us?</h2>
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever

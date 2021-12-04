@@ -3,7 +3,7 @@ import ProductList from '../components/Products/ProductList/ProductList';
 import Layout from '../components/layout/Layout/Layout';
 import { Route } from 'react-router';
 import { getAllProducts, getOneCategory } from '../helpers/api';
-import { Fragment } from 'react/cjs/react.production.min';
+import { Fragment } from 'react';
 
 const AllProducts = (props) => {
   const data = props.categories.map((category) => {

@@ -2,13 +2,13 @@ import classes from './ProductTemplate.module.css';
 
 const ProductTemplate = (props) => {
   return (
-    <div className={classes.card} id={props.id}>
-      <img
-        className={classes['product-image']}
-        src={props.src}
-        alt={props.name}
-      />
-      <h2 className={classes['product-name']}>{props.name}</h2>
+    <div className={classes.wrapper} id={props.id} onClick={props.onClick}>
+      <div>
+        <img src={props.src} alt={props.name} />
+      </div>
+      <div>
+        <span>{props.name}</span>
+      </div>
     </div>
   );
 };

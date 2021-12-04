@@ -1,10 +1,11 @@
-.card {
+.wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   justify-content: space-between;
   width: 25%;
+  /* height: 15rem; */
   background-color: transparent;
   margin: 10px;
   border-radius: 10%;
@@ -14,26 +15,30 @@
   transition: 1s;
 }
 
-.product-image {
-  padding-top: 0px;
+.wrapper img {
+  /* padding-top: 0px; */
   width: 100%;
   height: 12rem;
   object-fit: cover;
 }
 
-.product-name {
-  color: #fff;
-  font-weight: 600;
-  border-top: 1px solid #bc4749;
-  padding: 1.5rem 0.5rem 0 0.5rem;
+.wrapper > div:nth-of-type(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 2.5rem;
 }
-
-.product-image,
-.product-name {
+.wrapper div {
   pointer-events: none;
 }
+.wrapper span {
+  display: inline-block;
+  color: #bc4749;
+  font-weight: 600;
+  padding: 0 0.5rem;
+}
 
-.card:hover {
+.wrapper:hover {
   border-radius: 0% 100% 0% 100% / 67% 32% 68% 33%;
   transform: scale(1.1);
   -webkit-box-shadow: 1px 4px 19px 3px rgba(180, 114, 184, 0.28);

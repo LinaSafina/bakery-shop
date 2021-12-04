@@ -5,6 +5,7 @@ import ProductCard from '../ProductCard/ProductCard';
 import classes from './ProductList.module.css';
 import ProductTemplate from '../ProductTemplate/ProductTemplate';
 import Modal from '../ProductModal/ProductModal';
+import Loading from '../../layout/Loading/Loading';
 
 const ProductList = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -16,31 +17,6 @@ const ProductList = (props) => {
     sendRequest(categoryData);
   }, [sendRequest, categoryData]);
   let productData;
-
-  if (!data) {
-    productData = <div className='centered title'>Loading...</div>;
-  }
-
-  if (data) {
-    productData = data.map((item) => {
-      return (
-        <ProductTemplate
-          key={item.id}
-          id={item.id}
-          name={item.name}
-          description={item.description}
-          price={item.price}
-          category={item.category}
-          src={item.image}
-        />
-      );
-    });
-  }
-  if (data && data.length === 0) {
-    productData = (
-      <div className='centered'>We couldn't find any {categoryData}</div>
-    );
-  }
 
   const closeModalHandler = () => {
     setIsModalVisible(false);
@@ -55,11 +31,35 @@ const ProductList = (props) => {
     setCurrentProduct(product);
   };
 
+  if (!data) {
+    productData = <Loading />;
+  }
+
+  if (data) {
+    productData = data.map((item) => {
+      return (
+        <ProductTemplate
+          key={item.id}
+          id={item.id}
+          name={item.name}
+          description={item.description}
+          price={item.price}
+          category={item.category}
+          src={item.image}
+          onClick={openModalHandler}
+        />
+      );
+    });
+  }
+  if (data && data.length === 0) {
+    productData = (
+      <div className='centered'>We couldn't find any {categoryData}</div>
+    );
+  }
+
   return (
     <Fragment>
-      <div className={classes['card-container']} onClick={openModalHandler}>
-        {productData}
-      </div>
+      <div className={classes['card-container']}>{productData}</div>
       {isModalVisible && (
         <Modal onClick={closeModalHandler}>
           <ProductCard data={currentProduct} onClick={closeModalHandler} />

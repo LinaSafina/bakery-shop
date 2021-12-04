@@ -12,9 +12,9 @@
   position: fixed;
   display: flex;
   justify-content: center;
-  top: 15vh;
+  top: 10vh;
   left: 30%;
-  width: 40%;
+  width: 50%;
   background-color: white;
   padding: 1rem;
   border-radius: 14px;

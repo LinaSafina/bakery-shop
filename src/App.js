@@ -64,15 +64,12 @@ function App() {
         <main>
           {/* <ProductProvider> */}
           <Switch>
-            {!isLoading && (
-              <Route path='/' exact>
-                <HomePage categories={data} isLoading={isLoading} />
-              </Route>
-            )}
-
+            <Route path='/' exact>
+              <HomePage categories={data} isLoading={isLoading} />
+            </Route>
             {!isLoading && (
               <Route path='/products'>
-                <AllProducts categories={data} />
+                <AllProducts categories={data} isLoading={isLoading} />
               </Route>
             )}
 
@@ -94,6 +91,7 @@ function App() {
           </Switch>
           {/* </ProductProvider> */}
         </main>
+        )
       </div>
       <PageFooter />
     </Fragment>
