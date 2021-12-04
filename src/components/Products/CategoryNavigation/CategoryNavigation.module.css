@@ -1,0 +1,19 @@
+.container ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.container a {
+  text-decoration: none;
+  color: #bc4749;
+}
+
+.container a:hover,
+.container a:active {
+  color: #e63946;
+}
+
+a.active {
+  text-decoration: underline #bc4749;
+}

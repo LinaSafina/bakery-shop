@@ -1,0 +1,51 @@
+.footer {
+  height: 18rem;
+  background-color: #fec5bb;
+}
+
+.footer > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 90%;
+  margin: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+}
+
+.container p {
+  margin: 0.5rem;
+}
+
+.container a {
+  text-decoration: none;
+  color: inherit;
+}
+.container ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+}
+.container li {
+  margin: 0.2rem;
+}
+
+p a {
+  font-weight: 600;
+}
+
+h4 + a {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+h4 ~ a:hover {
+  color: white;
+}
