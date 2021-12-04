@@ -28,8 +28,9 @@
   justify-content: center;
   height: 2.5rem;
 }
+
 .wrapper div {
-  pointer-events: none;
+  width: 100%;
 }
 .wrapper span {
   display: inline-block;

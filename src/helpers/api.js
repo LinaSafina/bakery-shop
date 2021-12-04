@@ -1,3 +1,4 @@
+import AuthContext from '../store/auth-context';
 import { allProductsImages, homePageImages } from './images';
 
 const firebaseUrl =
@@ -14,7 +15,7 @@ const getData = async (
   } else {
     url = requestUrl;
   }
-  console.log(url);
+
   const response = await fetch(url);
 
   const responseData = await response.json();
@@ -55,3 +56,31 @@ export const getOneCategory = async (category) => {
     `?orderBy="category"&equalTo="${category}"`
   );
 };
+
+export const authRequest = async (requestUrl, requestBody) => {
+  const response = await fetch(requestUrl, {
+    method: 'POST',
+    body: JSON.stringify(requestBody),
+    headers: { 'Content-type': 'application/json' },
+  });
+  if (!response.ok) {
+    throw new Error('Auth request failed');
+  }
+  const responseData = await response.json();
+
+  return responseData;
+};
+
+// export const signInRequest = async (requestBody) => {
+//   authRequest({
+//     url: ':signInWithPassword?key=AIzaSyCFGHri0Xo-TPaq3aKL3N4uKuf3zzdsToc',
+//     body: requestBody,
+//   });
+// };
+
+// export const signUpRequest = async (requestBody) => {
+//   authRequest({
+//     url: ':signUp?key=AIzaSyCFGHri0Xo-TPaq3aKL3N4uKuf3zzdsToc',
+//     body: requestBody,
+//   });
+// };

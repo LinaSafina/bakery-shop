@@ -2,19 +2,24 @@ import { useCallback, useState } from 'react';
 
 const useHttp = (requestFunction) => {
   const [data, setData] = useState(null);
-
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   const sendRequest = useCallback(
-    async (requestUrl, category, images) => {
+    async (requestUrl, requestBody) => {
+      setIsLoading(true);
+      setError(null);
       try {
-        const responseData = await requestFunction(requestUrl, category);
+        const responseData = await requestFunction(requestUrl, requestBody);
         setData(responseData);
       } catch (e) {
-        alert(e.message);
+        setError(e.message || 'Something went wrong');
+        alert(e.message || 'Something went wrong');
       }
+      setIsLoading(false);
     },
     [requestFunction]
   );
-  return { sendRequest, data };
+  return { sendRequest, data, isLoading, error };
 };
 
 export default useHttp;
