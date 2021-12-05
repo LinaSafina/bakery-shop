@@ -17,6 +17,8 @@ const AuthForm = () => {
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
 
+    // new
+
     let requestUrl;
     if (isLogin) {
       requestUrl =

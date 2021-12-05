@@ -1,8 +1,4 @@
 import classes from './CategoryCards.module.css';
-import { getAllCategories } from '../../../helpers/api';
-import { useEffect } from 'react';
-import useHttp from '../../../hooks/useHttp';
-import { useHistory } from 'react-router';
 import CategoryImage from '../CategoryImage/CategoryImage';
 
 const CategoryCards = (props) => {

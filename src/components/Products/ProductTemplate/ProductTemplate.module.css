@@ -29,10 +29,12 @@
   height: 2.5rem;
 }
 .wrapper div {
+  width: 100%;
   pointer-events: none;
 }
+
 .wrapper span {
-  display: inline-block;
+  /* display: inline-block; */
   color: #bc4749;
   font-weight: 600;
   padding: 0 0.5rem;

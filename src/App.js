@@ -12,35 +12,6 @@ import Contacts from './pages/Contacts';
 import { getAllCategories } from './helpers/api';
 import useHttp from './hooks/useHttp';
 import { Redirect } from 'react-router';
-import { ProductProvider } from './store/product-context';
-
-// const categories = [
-//   {
-//     id: 'c1',
-//     name: 'biscuits',
-//     image: 'biscuits',
-//   },
-//   {
-//     id: 'c2',
-//     name: 'macarons',
-//     image: 'macarons',
-//   },
-//   {
-//     id: 'c3',
-//     name: 'bread',
-//     image: 'bread',
-//   },
-//   {
-//     id: 'c4',
-//     name: 'birthday cakes',
-//     image: 'birthday cakes',
-//   },
-//   {
-//     id: 'c5',
-//     name: 'cupcakes',
-//     image: 'cupcakes',
-//   },
-// ];
 
 function App() {
   const { sendRequest, data } = useHttp(getAllCategories);

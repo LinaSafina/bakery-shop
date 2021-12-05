@@ -9,13 +9,15 @@ const ProductCard = (props) => {
         <div>
           <img src={image} alt={name} />
         </div>
-        <h2>{name}</h2>
+        <div>
+          <h2>{name}</h2>
 
-        <p>{description}</p>
-        <h3>${price}</h3>
-        <button className={classes.cancel} onClick={props.onClick}>
-          Cancel
-        </button>
+          <p>{description}</p>
+          <h3>${price}</h3>
+          <button className={classes.cancel} onClick={props.onClick}>
+            Cancel
+          </button>
+        </div>
       </div>
     </div>
   );
