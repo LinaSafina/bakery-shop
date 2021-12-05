@@ -11,6 +11,7 @@ import Delivery from './pages/Delivery';
 import Contacts from './pages/Contacts';
 import { getAllCategories } from './helpers/api';
 import useHttp from './hooks/useHttp';
+import { Redirect } from 'react-router';
 import { ProductProvider } from './store/product-context';
 
 // const categories = [
@@ -89,6 +90,9 @@ function App() {
               <Delivery />
             </Route>
           </Switch>
+          <Route path='*'>
+            <Redirect to='/' />
+          </Route>
           {/* </ProductProvider> */}
         </main>
         )
