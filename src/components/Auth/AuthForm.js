@@ -11,7 +11,6 @@ const AuthForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isEmailInvalid, setIsEmailInvalid] = useState(false);
   const [isPasswordInvalid, setIsPasswordInvalid] = useState(false);
-  const [isFormTouched, setIsFormTouched] = useState(false);
   const history = useHistory();
 
   //Validation
@@ -22,17 +21,14 @@ const AuthForm = () => {
     return input.trim().length > 5;
   };
 
-  // let isEmailInvalid = false;
-  // let isPasswordInvalid = false;
-
   const submitHandler = (event) => {
     event.preventDefault();
     setIsLoading(true);
-    setIsFormTouched(true);
 
     let isEmailValid = false;
     let isPasswordValid = false;
     let isFormValid = false;
+    let isFormTouched = true;
 
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
@@ -40,21 +36,20 @@ const AuthForm = () => {
     isPasswordValid = validateInputPassword(enteredPassword);
     let emailInvalid = !isEmailValid && isFormTouched;
     setIsEmailInvalid(emailInvalid);
-    // isPasswordInvalid =
     setIsPasswordInvalid(!isPasswordValid && isFormTouched);
     isFormValid = isEmailValid && isPasswordValid;
     console.log(isFormValid, isPasswordInvalid, isEmailInvalid);
 
-    let requestUrl;
-    if (isLogin) {
-      requestUrl =
-        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCFGHri0Xo-TPaq3aKL3N4uKuf3zzdsToc';
-    } else {
-      requestUrl =
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCFGHri0Xo-TPaq3aKL3N4uKuf3zzdsToc';
-    }
     // Fetch data
     if (isFormValid) {
+      let requestUrl;
+      if (isLogin) {
+        requestUrl =
+          'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCFGHri0Xo-TPaq3aKL3N4uKuf3zzdsToc';
+      } else {
+        requestUrl =
+          'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCFGHri0Xo-TPaq3aKL3N4uKuf3zzdsToc';
+      }
       fetch(requestUrl, {
         method: 'POST',
         body: JSON.stringify({
@@ -75,9 +70,9 @@ const AuthForm = () => {
           authCtx.login(data.idToken);
           history.push('/');
         })
-        .catch((e) => alert(e))
-        .finally(() => setIsLoading(false));
+        .catch((e) => alert(e));
     }
+
     setIsLoading(false);
   };
 
