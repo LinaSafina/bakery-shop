@@ -90,9 +90,9 @@ function App() {
               <Delivery />
             </Route>
           </Switch>
-          <Route path='*'>
+          {/* <Route path='*'>
             <Redirect to='/' />
-          </Route>
+          </Route> */}
           {/* </ProductProvider> */}
         </main>
         )
