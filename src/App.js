@@ -3,7 +3,7 @@ import PageFooter from './components/layout/PageFooter/PageFooter';
 import HomePage from './pages/HomePage';
 import MainNavigation from './components/layout/MainNavigation/MainNavigation';
 import AllProducts from './pages/AllProducts';
-import Cart from './pages/Cart';
+import CartPage from './pages/CartPage';
 import Auth from './pages/Auth';
 import { Fragment, useEffect } from 'react';
 import './App.css';
@@ -50,7 +50,7 @@ function App() {
             </Route>
 
             <Route path='/cart'>
-              <Cart />
+              <CartPage />
             </Route>
 
             <Route path='/contacts'>
