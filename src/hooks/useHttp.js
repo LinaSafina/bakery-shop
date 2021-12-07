@@ -4,9 +4,9 @@ const useHttp = (requestFunction) => {
   const [data, setData] = useState(null);
 
   const sendRequest = useCallback(
-    async (requestUrl, category, images) => {
+    async (requestData) => {
       try {
-        const responseData = await requestFunction(requestUrl, category);
+        const responseData = await requestFunction(requestData);
         setData(responseData);
       } catch (e) {
         alert(e.message);

@@ -4,18 +4,19 @@ import { useState, useEffect } from 'react';
 const AuthContext = React.createContext({
   token: null,
   isLoggedIn: false,
-  login: (token) => {},
+  login: (token, user) => {},
   logout: () => {},
+  user: null,
 });
 
-const isSavedToken = () => {
-  const savedToken = localStorage.getItem('token');
-  if (savedToken) {
-    return {
-      token: savedToken,
-    };
-  }
-};
+// const isSavedToken = () => {
+//   const savedToken = localStorage.getItem('token');
+//   if (savedToken) {
+//     return {
+//       token: savedToken,
+//     };
+//   }
+// };
 
 export const AuthProvider = (props) => {
   let initialToken;
@@ -24,10 +25,12 @@ export const AuthProvider = (props) => {
     initialToken = savedToken;
   }
   const [token, setToken] = useState(initialToken);
+  const [user, setUser] = useState(null);
   let isLoggedIn = !!token;
 
-  const login = (token) => {
+  const login = (token, user) => {
     localStorage.setItem('token', token);
+    setUser(user);
     setToken(token);
   };
 
@@ -38,6 +41,7 @@ export const AuthProvider = (props) => {
 
   const contextValue = {
     token,
+    user,
     isLoggedIn,
     login,
     logout,

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import useHttp from '../../../hooks/useHttp';
 import { Fragment } from 'react';
 import ProductCard from '../ProductCard/ProductCard';
@@ -6,10 +6,17 @@ import classes from './ProductList.module.css';
 import ProductTemplate from '../ProductTemplate/ProductTemplate';
 import Modal from '../ProductModal/ProductModal';
 import Loading from '../../layout/Loading/Loading';
+import CartContext from '../../../store/cart-context';
 
 const ProductList = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(null);
+
+  // const cartCtx = useContext(CartContext);
+
+  // const addItemHandler = () => {
+  //   cartCtx.addItem(currentProduct);
+  // };
 
   const { sendRequest, data } = useHttp(props.data.function);
   const categoryData = props.data.category;
@@ -62,7 +69,11 @@ const ProductList = (props) => {
       <div className={classes['card-container']}>{productData}</div>
       {isModalVisible && (
         <Modal onClick={closeModalHandler}>
-          <ProductCard data={currentProduct} onClick={closeModalHandler} />
+          <ProductCard
+            data={currentProduct}
+            // onAdd={addItemHandler}
+            onCancel={closeModalHandler}
+          />
         </Modal>
       )}
     </Fragment>

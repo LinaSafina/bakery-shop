@@ -47,7 +47,44 @@ body {
   text-decoration: none;
 }
 
-.btn {
+.button {
+  width: 4.5rem;
+  height: 2rem;
+  background-color: transparent;
+  border-radius: 10%;
+  cursor: pointer;
+  border: 1px solid #bc4749;
+  margin: 0.2rem;
+}
+
+.button:hover,
+.button:active {
+  -webkit-box-shadow: 1px 4px 19px 3px rgba(180, 114, 184, 0.28);
+  -moz-box-shadow: 1px 4px 19px 3px rgba(180, 114, 184, 0.28);
+  box-shadow: 1px 4px 19px 3px rgba(180, 114, 184, 0.28);
+}
+
+.cancel {
+  color: #bc4749;
+}
+
+.add {
+  color: white;
+  background-color: #bc4749;
+}
+
+.cancel:hover,
+.cancel:active {
+  color: #e63946;
+  border-color: #e63946;
+}
+
+.add:hover,
+.add:active {
+  background-color: #f28482;
+}
+
+/* .btn {
   text-decoration: none;
   background-color: teal;
   color: white;
@@ -78,4 +115,4 @@ body {
 .btn--flat:active {
   background-color: teal;
   color: white;
-}
+} */

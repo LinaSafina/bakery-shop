@@ -12,6 +12,7 @@ import Contacts from './pages/Contacts';
 import { getAllCategories } from './helpers/api';
 import useHttp from './hooks/useHttp';
 import { Redirect } from 'react-router';
+import { CartProvider } from './store/cart-context';
 
 function App() {
   const { sendRequest, data } = useHttp(getAllCategories);
@@ -31,44 +32,41 @@ function App() {
   }
   return (
     <Fragment>
-      <div className='content-wrapper'>
-        <MainNavigation />
-        <main>
-          {/* <ProductProvider> */}
-          <Switch>
-            <Route path='/' exact>
-              <HomePage categories={data} isLoading={isLoading} />
-            </Route>
-            {!isLoading && (
-              <Route path='/products'>
-                <AllProducts categories={data} isLoading={isLoading} />
+      <CartProvider>
+        <div className='content-wrapper'>
+          <MainNavigation />
+          <main>
+            <Switch>
+              <Route path='/' exact>
+                <HomePage categories={data} isLoading={isLoading} />
               </Route>
-            )}
+              {!isLoading && (
+                <Route path='/products'>
+                  <AllProducts categories={data} isLoading={isLoading} />
+                </Route>
+              )}
 
-            <Route path='/auth'>
-              <Auth />
-            </Route>
+              <Route path='/auth'>
+                <Auth />
+              </Route>
 
-            <Route path='/cart'>
-              <CartPage />
-            </Route>
+              <Route path='/cart'>
+                <CartPage />
+              </Route>
 
-            <Route path='/contacts'>
-              <Contacts />
-            </Route>
+              <Route path='/contacts'>
+                <Contacts />
+              </Route>
 
-            <Route path='/delivery'>
-              <Delivery />
-            </Route>
-          </Switch>
-          {/* <Route path='*'>
-            <Redirect to='/' />
-          </Route> */}
-          {/* </ProductProvider> */}
-        </main>
-        )
-      </div>
-      <PageFooter />
+              <Route path='/delivery'>
+                <Delivery />
+              </Route>
+            </Switch>
+          </main>
+          )
+        </div>
+        <PageFooter />
+      </CartProvider>
     </Fragment>
   );
 }

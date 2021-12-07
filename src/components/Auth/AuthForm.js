@@ -3,7 +3,7 @@ import AuthContext from '../../store/auth-context';
 import { useHistory } from 'react-router';
 import classes from './AuthForm.module.css';
 
-const AuthForm = () => {
+const AuthForm = (props) => {
   const authCtx = useContext(AuthContext);
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
@@ -67,8 +67,12 @@ const AuthForm = () => {
             throw new Error(data.error.message || 'Something went wrong');
           }
           // console.log(data);
-          authCtx.login(data.idToken);
-          history.push('/');
+          authCtx.login(data.idToken, enteredEmail);
+          if (history.location.state.prevPage === '/cart') {
+            history.goBack(-1);
+          } else {
+            history.push('/');
+          }
         })
         .catch((e) => alert(e));
     }

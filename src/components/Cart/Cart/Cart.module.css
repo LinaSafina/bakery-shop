@@ -20,6 +20,12 @@
   margin: 0;
 }
 
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
 /* .container > div {
   margin: 1rem 0.5rem 0.5rem;
 } */

@@ -1,21 +1,9 @@
 import { allProductsImages, homePageImages } from './images';
 
-const firebaseUrl =
-  'https://final-project-409c3-default-rtdb.firebaseio.com/products.json';
+const firebaseUrl = 'https://final-project-409c3-default-rtdb.firebaseio.com';
 
-const getData = async (
-  requestUrl = firebaseUrl,
-  query = null,
-  images = allProductsImages
-) => {
-  let url;
-  if (query) {
-    url = `${requestUrl}${query}`;
-  } else {
-    url = requestUrl;
-  }
-  console.log(url);
-  const response = await fetch(url);
+const getData = async (requestUrl, images) => {
+  const response = await fetch(requestUrl);
 
   const responseData = await response.json();
   if (!response.ok) {
@@ -39,19 +27,32 @@ const getData = async (
 
     transformedProducts.push(productObj);
   }
-  // {[{category: "biscuit", name: "namedfd"}, {}, {}]}
   return transformedProducts;
 };
 
 export const getAllProducts = async () => {
-  return await getData();
+  return await getData(`${firebaseUrl}/products.json`, allProductsImages);
 };
-export const getAllCategories = async (requestUrl) => {
-  return await getData(requestUrl, null, homePageImages);
+export const getAllCategories = async () => {
+  return await getData(`${firebaseUrl}/categories.json`, homePageImages);
 };
 export const getOneCategory = async (category) => {
   return await getData(
-    firebaseUrl,
-    `?orderBy="category"&equalTo="${category}"`
+    `${firebaseUrl}/products.json?orderBy="category"&equalTo="${category}"`,
+    allProductsImages
   );
+};
+
+export const postCartData = async (cartObj) => {
+  const response = await fetch(`${firebaseUrl}/cart.json`, {
+    method: 'POST',
+    headers: { 'Content-type': 'application/json' },
+    body: JSON.stringify(cartObj),
+  });
+  if (!response.ok) {
+    throw new Error(
+      "Sorry we couldn't send your order. You can try again or contact us via phone or email"
+    );
+  }
+  return response;
 };

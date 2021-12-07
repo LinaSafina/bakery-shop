@@ -2,11 +2,14 @@ import classes from './MainNavigation.module.css';
 import { NavLink, Link, useHistory } from 'react-router-dom';
 import { useContext } from 'react';
 import AuthContext from '../../../store/auth-context';
+import CartContext from '../../../store/cart-context';
 
 const MainNavigation = () => {
   const authCtx = useContext(AuthContext);
+  const cartCtx = useContext(CartContext);
   const isLoggedIn = authCtx.isLoggedIn;
   const history = useHistory();
+  const { totalAmount } = cartCtx;
 
   const logoutHandler = () => {
     authCtx.logout();
@@ -55,6 +58,7 @@ const MainNavigation = () => {
             <NavLink to='/cart' activeClassName={classes.active}>
               Cart
             </NavLink>
+            <span className={classes['cart-badge']}>{totalAmount}</span>
           </li>
         </ul>
       </div>

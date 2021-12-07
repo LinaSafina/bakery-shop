@@ -48,3 +48,10 @@
 .icons a.active {
   color: white;
 }
+
+.cart-badge {
+  border: 1px solid #343a40;
+  border-radius: 10%;
+  padding: 0.2rem 0.8rem;
+  margin-left: 0.5 rem;
+}
