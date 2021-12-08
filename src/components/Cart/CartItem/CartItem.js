@@ -14,14 +14,20 @@ const CartItem = (props) => {
   };
   return (
     <div className={classes['cart-item']}>
-      <div className={classes.summary}>
+      <div className={classes['cart-item__card']}>
         <h2>{props.item.name}</h2>
-        <span className={classes.price}>${props.item.price}</span>
-        <span className={classes.amount}>×{props.item.amount}</span>
+        <span className={classes['cart-item__price']}>${props.item.price}</span>
+        <span className={classes['cart-item__amount']}>
+          ×{props.item.amount}
+        </span>
       </div>
-      <div className={classes.actions}>
-        <button onClick={removeItemHandler}>-</button>
-        <button onClick={addItemHandler}>+</button>
+      <div className={classes['cart-item__actions']}>
+        <button className={'button'} onClick={removeItemHandler}>
+          -
+        </button>
+        <button className={'button'} onClick={addItemHandler}>
+          +
+        </button>
       </div>
     </div>
   );

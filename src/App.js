@@ -11,8 +11,8 @@ import Delivery from './pages/Delivery';
 import Contacts from './pages/Contacts';
 import { getAllCategories } from './helpers/api';
 import useHttp from './hooks/useHttp';
-import { Redirect } from 'react-router';
 import { CartProvider } from './store/cart-context';
+import NotFound from './pages/NotFound';
 
 function App() {
   const { sendRequest, data } = useHttp(getAllCategories);
@@ -61,9 +61,11 @@ function App() {
               <Route path='/delivery'>
                 <Delivery />
               </Route>
+              <Route path='*'>
+                <NotFound />
+              </Route>
             </Switch>
           </main>
-          )
         </div>
         <PageFooter />
       </CartProvider>

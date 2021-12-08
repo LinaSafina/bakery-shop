@@ -1,12 +1,7 @@
-import { Route } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import classes from './CategoryNavigation.module.css';
-import useHttp from '../../../hooks/useHttp';
-import { getAllCategories } from '../../../helpers/api';
-import { useEffect } from 'react';
 
 const CategoryNavigation = (props) => {
-  console.log(props.categories);
   const categoryData = props.categories.map((item) => {
     const url = `/products/${item.name}`;
     const name = item.name.substr(0, 1).toUpperCase() + item.name.substr(1);
@@ -21,7 +16,7 @@ const CategoryNavigation = (props) => {
   });
 
   return (
-    <div className={classes.container}>
+    <div className={classes['category-nav']}>
       <ul>
         <li>
           <NavLink to='/products' activeClassName={classes.active} exact>

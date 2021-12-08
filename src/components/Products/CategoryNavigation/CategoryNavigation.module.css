@@ -1,16 +1,16 @@
-.container ul {
+.category-nav ul {
   display: flex;
   justify-content: space-around;
   list-style: none;
 }
 
-.container a {
+.category-nav a {
   text-decoration: none;
   color: #bc4749;
 }
 
-.container a:hover,
-.container a:active {
+.category-nav a:hover,
+.category-nav a:active {
   color: #e63946;
 }
 

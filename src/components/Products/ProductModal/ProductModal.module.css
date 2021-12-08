@@ -1,42 +1,58 @@
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 20;
-  background-color: rgba(90, 87, 87, 0.75);
-}
-
-.modal {
-  position: fixed;
+.product-modal {
   display: flex;
-  justify-content: center;
-  top: 10vh;
-  left: 35%;
-  width: 30%;
-  background-color: white;
-  padding: 1rem;
-  border-radius: 14px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  z-index: 30;
-  /* animation: slide-down 300ms ease-out forwards; */
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  border-radius: 10%;
 }
 
-/* @media (min-width: 768px) {
-  .modal {
-    width: 40rem;
-    left: calc(50% - 20rem);
-  }
-} */
+.product-modal > div {
+  padding: 0.5rem;
+  overflow: none;
+}
 
-/* @keyframes slide-down {
-  from {
-    opacity: 0;
-    transform: translateY(-3rem);
-  }
-  /* to { */
-/* opacity: 1;
-    transform: translateY(0);
-  }
-} */
+.form {
+  display: inline;
+}
+
+.product-modal div:nth-of-type(2) {
+  margin: 0 1rem;
+}
+
+.image img {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+}
+
+.product-modal h2 {
+  color: #bc4749;
+  font-weight: 600;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #bc4749;
+}
+
+.product-modal h3 {
+  font-size: 20px;
+}
+
+.product-modal p {
+  font-size: 0.9rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #bc4749;
+}
+
+.product-modal input {
+  outline: none;
+  margin: 0.25rem;
+  padding: 0.25rem;
+  width: 2rem;
+  border: 1px solid #bc4749;
+  border-radius: 15%;
+}
+
+.product-modal label {
+  margin: 0.25rem;
+}

@@ -1,4 +1,4 @@
-.container {
+.cart {
   margin: 3rem auto;
   width: 95%;
   max-width: 35rem;
@@ -8,7 +8,7 @@
   padding: 1.5rem;
 }
 
-.total {
+.cart__total {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,16 +16,12 @@
   padding-top: 1.8rem;
 }
 
-.total h2 {
+.cart__total h2 {
   margin: 0;
 }
 
-.actions {
+.cart__actions {
   margin-top: 1rem;
   display: flex;
   justify-content: flex-end;
 }
-
-/* .container > div {
-  margin: 1rem 0.5rem 0.5rem;
-} */

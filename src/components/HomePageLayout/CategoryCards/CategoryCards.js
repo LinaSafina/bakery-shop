@@ -1,12 +1,12 @@
 import classes from './CategoryCards.module.css';
-import CategoryImage from '../CategoryImage/CategoryImage';
+import CategoryCard from '../CategoryCard/CategoryCard';
 
 const CategoryCards = (props) => {
   const productData = props.categories.map((item) => {
-    return <CategoryImage key={item.id} name={item.name} src={item.image} />;
+    return <CategoryCard key={item.id} name={item.name} src={item.image} />;
   });
 
-  return <div className={classes.container}>{productData}</div>;
+  return <div className={classes['category-cards']}>{productData}</div>;
 };
 
 export default CategoryCards;

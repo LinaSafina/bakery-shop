@@ -1,7 +1,6 @@
-// import classes from './MainNavigation.module.css';
 import { Fragment } from 'react';
 import CategoryCards from '../components/HomePageLayout/CategoryCards/CategoryCards';
-import MainBanner from '../components/HomePageLayout/MainBanner/MainBanner';
+import MainBanner from '../components/HomePageLayout/MainImage/MainImage';
 import Layout from '../components/layout/Layout/Layout';
 import HomePageDescription from '../components/HomePageLayout/HomePageDescription/HomePageDescription';
 import Loading from '../components/layout/Loading/Loading';
@@ -16,9 +15,7 @@ const HomePage = (props) => {
           <Layout>
             <HomePageDescription />
           </Layout>
-          {/* <Layout> */}
           <CategoryCards categories={props.categories} />
-          {/* </Layout> */}
         </Fragment>
       )}
     </Fragment>

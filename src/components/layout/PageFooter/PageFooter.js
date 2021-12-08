@@ -6,12 +6,12 @@ const PageFooter = () => {
   return (
     <footer className={classes.footer}>
       <div>
-        <div className={classes.container}>
+        <div className={classes.footer__content}>
           <h4>Candy Shop</h4>
           <Link to='/products'>Shop</Link>
           <Link to='/contacts'>Contact</Link>
         </div>
-        <div className={classes.container}>
+        <div className={classes.footer__content}>
           <p>Have a question?</p>
           <p>We're always here to lend a helping hand.</p>
           <p>

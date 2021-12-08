@@ -1,13 +1,12 @@
 import bannerImage from '../../../images/muffins_banner.jpg';
-import classes from './MainBanner.module.css';
+import classes from './MainImage.module.css';
 
-const MainBanner = () => {
+const MainImage = () => {
   return (
     <div className={classes['main-image']}>
       <img src={bannerImage} alt='Delicious muffins' />
-      {/* <button>Shop Now</button> */}
     </div>
   );
 };
 
-export default MainBanner;
+export default MainImage;

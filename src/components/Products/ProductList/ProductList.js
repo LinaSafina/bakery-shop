@@ -1,22 +1,15 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import useHttp from '../../../hooks/useHttp';
 import { Fragment } from 'react';
 import ProductCard from '../ProductCard/ProductCard';
 import classes from './ProductList.module.css';
-import ProductTemplate from '../ProductTemplate/ProductTemplate';
-import Modal from '../ProductModal/ProductModal';
+import ProductModal from '../ProductModal/ProductModal';
+import Modal from '../Modal/Modal';
 import Loading from '../../layout/Loading/Loading';
-import CartContext from '../../../store/cart-context';
 
 const ProductList = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(null);
-
-  // const cartCtx = useContext(CartContext);
-
-  // const addItemHandler = () => {
-  //   cartCtx.addItem(currentProduct);
-  // };
 
   const { sendRequest, data } = useHttp(props.data.function);
   const categoryData = props.data.category;
@@ -45,7 +38,7 @@ const ProductList = (props) => {
   if (data) {
     productData = data.map((item) => {
       return (
-        <ProductTemplate
+        <ProductCard
           key={item.id}
           id={item.id}
           name={item.name}
@@ -66,14 +59,10 @@ const ProductList = (props) => {
 
   return (
     <Fragment>
-      <div className={classes['card-container']}>{productData}</div>
+      <div className={classes['product-list']}>{productData}</div>
       {isModalVisible && (
         <Modal onClick={closeModalHandler}>
-          <ProductCard
-            data={currentProduct}
-            // onAdd={addItemHandler}
-            onCancel={closeModalHandler}
-          />
+          <ProductModal data={currentProduct} onCancel={closeModalHandler} />
         </Modal>
       )}
     </Fragment>

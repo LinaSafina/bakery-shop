@@ -1,27 +1,48 @@
 import classes from './MainNavigation.module.css';
 import { NavLink, Link, useHistory } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../../store/auth-context';
 import CartContext from '../../../store/cart-context';
+import Icons from '../Icons';
 
 const MainNavigation = () => {
   const authCtx = useContext(AuthContext);
   const cartCtx = useContext(CartContext);
   const isLoggedIn = authCtx.isLoggedIn;
   const history = useHistory();
+  const [isMenuOpened, setIsMenuOpened] = useState(false);
   const { totalAmount } = cartCtx;
+  const [isBtnAnimated, setIsBtnAnimated] = useState(false);
 
   const logoutHandler = () => {
     authCtx.logout();
     history.push('/auth');
     return;
   };
+
+  useEffect(() => {
+    setIsBtnAnimated(true);
+    setTimeout(() => {
+      setIsBtnAnimated(false);
+    }, 500);
+  }, [cartCtx.items]);
+
+  const cartBadgeClasses = `${classes['cart-badge']} ${
+    isBtnAnimated ? classes.animated : ''
+  }`;
+
+  const toggleMenuHandler = () => {
+    setIsMenuOpened((prevState) => !isMenuOpened);
+  };
+
+  const navClasses = `${classes.nav} ${isMenuOpened ? classes.opened : ''}`;
   return (
     <header className={classes.header}>
-      <h2 className={classes.logo}>
+      <h3 className={classes.logo}>
         <Link to='/'>CandyMuseum</Link>
-      </h2>
-      <nav className={classes.nav}>
+      </h3>
+      {/* <input type='checkbox' id='checkbox' /> */}
+      <nav className={navClasses}>
         <ul>
           <li>
             <NavLink to='/products' activeClassName={classes.active}>
@@ -58,9 +79,22 @@ const MainNavigation = () => {
             <NavLink to='/cart' activeClassName={classes.active}>
               Cart
             </NavLink>
-            <span className={classes['cart-badge']}>{totalAmount}</span>
+            <span className={cartBadgeClasses}>{totalAmount}</span>
           </li>
         </ul>
+      </div>
+
+      <div
+        className={classes.icon}
+        htmlFor='checkbox'
+        onClick={toggleMenuHandler}
+      >
+        <Icons
+          name='nav'
+          color='#fff'
+          size='32'
+          className='button-left-panel'
+        />
       </div>
     </header>
   );

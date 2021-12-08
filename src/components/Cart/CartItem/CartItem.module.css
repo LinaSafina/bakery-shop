@@ -6,7 +6,7 @@
   border-bottom: 1px solid #343a40;
 }
 
-.actions button {
+.cart-item__actions button {
   color: #343a40;
   font-size: 1rem;
   width: 4rem;
@@ -17,19 +17,16 @@
   border: 1px solid #343a40;
   cursor: pointer;
 }
-/* 
-.summary {
-} */
 
-.summary span:nth-of-type(1) {
+.cart-item__card span:nth-of-type(1) {
   margin-right: 5rem;
 }
 
-.summary h2 {
+.cart-item__card h2 {
   font-size: 1.2rem;
 }
-/* #bc4749; */
-.amount {
+
+.cart-item__amount {
   padding: 0.2rem 0.5rem;
   border: 1px solid #343a40;
   border-radius: 15%;

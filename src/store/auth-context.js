@@ -1,5 +1,4 @@
-import React, { useCallback } from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const AuthContext = React.createContext({
   token: null,
@@ -8,15 +7,6 @@ const AuthContext = React.createContext({
   logout: () => {},
   user: null,
 });
-
-// const isSavedToken = () => {
-//   const savedToken = localStorage.getItem('token');
-//   if (savedToken) {
-//     return {
-//       token: savedToken,
-//     };
-//   }
-// };
 
 export const AuthProvider = (props) => {
   let initialToken;

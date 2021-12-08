@@ -14,18 +14,18 @@
   color: #f28482;
 }
 
-.control {
+.auth__control {
   margin-bottom: 0.5rem;
 }
 
-.control label {
+.auth__control label {
   display: block;
   color: #f28482;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
-.control input {
+.auth__control input {
   font: inherit;
   background-color: transparent;
   color: #f28482;
@@ -37,21 +37,21 @@
   outline: none;
 }
 
-.control input:focus,
+.auth__control input:focus,
 .control input:active {
   border: 1px solid #f28482;
 }
-.control span {
+.auth__control span {
   font-size: 0.8rem;
 }
-.actions {
+.auth__actions {
   margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.actions button {
+.auth__actions button {
   cursor: pointer;
   font: inherit;
   color: white;
@@ -61,12 +61,12 @@
   padding: 0.5rem 2.5rem;
 }
 
-.actions button:hover {
+.auth__actions button:hover {
   background-color: #bc4749;
   border-color: #bc4749;
 }
 
-.actions .toggle {
+.auth__actions .auth__toggle {
   margin-top: 1rem;
   background-color: transparent;
   color: #f28482;
@@ -74,7 +74,7 @@
   padding: 0.15rem 1.5rem;
 }
 
-.actions .toggle:hover {
+.auth__actions .auth__toggle:hover {
   background-color: transparent;
   color: #bc4749;
 }

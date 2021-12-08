@@ -1,9 +1,9 @@
-import { useState, useRef, useContext, useEffect } from 'react';
+import { useState, useRef, useContext } from 'react';
 import AuthContext from '../../store/auth-context';
 import { useHistory } from 'react-router';
 import classes from './AuthForm.module.css';
 
-const AuthForm = (props) => {
+const AuthForm = () => {
   const authCtx = useContext(AuthContext);
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
@@ -38,7 +38,6 @@ const AuthForm = (props) => {
     setIsEmailInvalid(emailInvalid);
     setIsPasswordInvalid(!isPasswordValid && isFormTouched);
     isFormValid = isEmailValid && isPasswordValid;
-    console.log(isFormValid, isPasswordInvalid, isEmailInvalid);
 
     // Fetch data
     if (isFormValid) {
@@ -66,9 +65,9 @@ const AuthForm = (props) => {
           if (data.error) {
             throw new Error(data.error.message || 'Something went wrong');
           }
-          // console.log(data);
+
           authCtx.login(data.idToken, enteredEmail);
-          if (history.location.state.prevPage === '/cart') {
+          if (history?.location?.state?.prevPage === '/cart') {
             history.goBack(-1);
           } else {
             history.push('/');
@@ -87,13 +86,13 @@ const AuthForm = (props) => {
     <section className={classes.auth}>
       <h1>{isLogin ? 'Login' : 'Sign up'}</h1>
       <form onSubmit={submitHandler} noValidate>
-        <div className={classes.control}>
+        <div className={classes['auth__control']}>
           <label htmlFor='email'>Your Email</label>
           <input type='email' id='email' required ref={emailInputRef} />
           {isEmailInvalid && <span>Email is invalid</span>}
         </div>
 
-        <div className={classes.control}>
+        <div className={classes['auth__control']}>
           <label htmlFor='password'>Your Password</label>
           <input
             type='password'
@@ -103,12 +102,12 @@ const AuthForm = (props) => {
           />
           {isPasswordInvalid && <span>Password is invalid</span>}
         </div>
-        <div className={classes.actions}>
+        <div className={classes['auth__actions']}>
           {!isLoading && <button>{isLogin ? 'Login' : 'Sign up'}</button>}
           {isLoading && <p>Sending a request...</p>}
           <button
             type='button'
-            className={classes.toggle}
+            className={classes['auth__toggle']}
             onClick={toggleButtonHandler}
           >
             {isLogin ? 'Create a new account' : 'Login with existing account'}

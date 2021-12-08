@@ -10,22 +10,7 @@ const CartContext = React.createContext({
   clear: () => {},
 });
 
-// const initialState = {
-//   totalPrice: 0,
-//   items: [],
-//   totalAmount: 0,
-// };
 let initialState;
-const savedCart = JSON.parse(localStorage.getItem('cart'));
-if (savedCart) {
-  initialState = savedCart;
-} else {
-  initialState = {
-    totalPrice: 0,
-    items: [],
-    totalAmount: 0,
-  };
-}
 
 const cartReducer = (state, action) => {
   if (action.type === 'ADD') {
@@ -78,13 +63,31 @@ const cartReducer = (state, action) => {
   }
   if (action.type === 'CLEAR') {
     localStorage.removeItem('cart');
-    return initialState;
+    return {
+      totalPrice: 0,
+      items: [],
+      totalAmount: 0,
+    };
   }
   localStorage.removeItem('cart');
-  return initialState;
+  return {
+    totalPrice: 0,
+    items: [],
+    totalAmount: 0,
+  };
 };
 
 export const CartProvider = (props) => {
+  const savedCart = JSON.parse(localStorage.getItem('cart'));
+  if (savedCart) {
+    initialState = savedCart;
+  } else {
+    initialState = {
+      totalPrice: 0,
+      items: [],
+      totalAmount: 0,
+    };
+  }
   const [cartState, dispatchCart] = useReducer(cartReducer, initialState);
   const clearCartHandler = () => {
     dispatchCart({ type: 'CLEAR' });

@@ -38,29 +38,23 @@ const Cart = () => {
   };
 
   const cartData = cartCtx.items.map((item) => {
-    return <CartItem item={item} />;
+    return <CartItem item={item} key={item.id} />;
   });
   return (
-    <section className={classes.container}>
+    <section className={classes.cart}>
       {cartData}
-      <div className={classes.total}>
+      <div className={classes['cart__total']}>
         <h2>Total</h2>
-        <span>${cartCtx.totalPrice}</span>
+        <span>${cartCtx.totalPrice.toFixed(2)}</span>
       </div>
-      <div className={classes.actions}>
+      <div className={classes['cart__actions']}>
         {hasItems && (
-          <button
-            className={'button' + ' ' + 'add'}
-            onClick={orderProductHandler}
-          >
+          <button className={'button add'} onClick={orderProductHandler}>
             Order
           </button>
         )}
         {hasItems && (
-          <button
-            className={'button' + ' ' + 'cancel'}
-            onClick={clearCartHandler}
-          >
+          <button className={'button cancel'} onClick={clearCartHandler}>
             Clear
           </button>
         )}

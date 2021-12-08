@@ -12,28 +12,28 @@
   margin: auto;
 }
 
-.container {
+.footer__content {
   display: flex;
   flex-direction: column;
   height: 90%;
 }
 
-.container p {
+.footer__content p {
   margin: 0.5rem;
 }
 
-.container a {
+.footer__content a {
   text-decoration: none;
   color: inherit;
 }
-.container ul {
+.footer__content ul {
   margin: 0;
   padding: 0;
   list-style: none;
   display: flex;
   justify-content: flex-start;
 }
-.container li {
+.footer__content li {
   margin: 0.2rem;
 }
 
