@@ -5,7 +5,7 @@ import MainNavigation from './components/layout/MainNavigation/MainNavigation';
 import AllProducts from './pages/AllProducts';
 import CartPage from './pages/CartPage';
 import Auth from './pages/Auth';
-import { Fragment, useEffect } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import './App.css';
 import Delivery from './pages/Delivery';
 import Contacts from './pages/Contacts';
@@ -16,20 +16,20 @@ import NotFound from './pages/NotFound';
 
 function App() {
   const { sendRequest, data } = useHttp(getAllCategories);
-  let isLoading = true;
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     sendRequest(
       'https://final-project-409c3-default-rtdb.firebaseio.com/categories.json'
     );
   }, [sendRequest]);
 
-  if (!data) {
-    isLoading = true;
-  }
-
-  if (data) {
-    isLoading = false;
-  }
+  useEffect(() => {
+    if (!data) {
+      setIsLoading(true);
+    } else {
+      setIsLoading(false);
+    }
+  }, [data]);
   return (
     <Fragment>
       <CartProvider>

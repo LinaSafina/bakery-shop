@@ -40,7 +40,11 @@ const MainNavigation = () => {
   return (
     <header className={classes.header}>
       <h3 className={classes.logo}>
-        <Link to='/'>CandyMuseum</Link>
+        <Link to='/'>
+          Candy
+          <br />
+          Museum
+        </Link>
       </h3>
       {/* <input type='checkbox' id='checkbox' /> */}
       <nav className={navClasses}>
@@ -80,7 +84,7 @@ const MainNavigation = () => {
                 <Icons
                   name='logout'
                   color='#343a40'
-                  size='32'
+                  size='28'
                   className='button-left-panel'
                 />
               </Link>
@@ -92,7 +96,7 @@ const MainNavigation = () => {
                 <Icons
                   name='cart'
                   color='#343a40'
-                  size='32'
+                  size='28'
                   className='button-left-panel'
                 />
               </NavLink>
