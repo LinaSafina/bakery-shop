@@ -42,7 +42,7 @@ const Cart = () => {
   });
   return (
     <section className={classes.cart}>
-      <div className={classes['cart__wrapper']}>
+      <div className={classes['cart__products']}>
         {cartData}
         <div className={classes['cart__total']}>
           <h2>Total</h2>

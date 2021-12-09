@@ -15,7 +15,7 @@ const CartItem = (props) => {
   return (
     <div className={classes['cart-item']}>
       <div className={classes['cart-item__card']}>
-        <h2>{props.item.name}</h2>
+        <h2 className={classes['cart-item__title']}>{props.item.name}</h2>
         <span className={classes['cart-item__price']}>${props.item.price}</span>
         <span className={classes['cart-item__amount']}>
           ×{props.item.amount}
