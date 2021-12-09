@@ -36,6 +36,7 @@ const MainNavigation = () => {
   };
 
   const navClasses = `${classes.nav} ${isMenuOpened ? classes.opened : ''}`;
+
   return (
     <header className={classes.header}>
       <h3 className={classes.logo}>

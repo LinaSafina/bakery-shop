@@ -13,6 +13,7 @@
   -webkit-box-shadow: 0px 8px 8px 0px rgba(111, 31, 70, 0.2);
   -moz-box-shadow: 0px 8px 8px 0px rgba(111, 31, 70, 0.2);
   box-shadow: 0px 8px 8px 0px rgba(111, 31, 70, 0.2);
+  grid-area: 'header';
 }
 
 .logo a {
@@ -42,18 +43,14 @@
   font-size: 1.25rem;
 }
 
-.nav a,
-.icons a {
+.nav a {
   text-decoration: none;
   color: #343a40;
 }
 
 .nav a:hover,
 .nav a:active,
-.nav a.active,
-.icons a:hover,
-.icons a:active,
-.icons a.active {
+.nav a.active {
   color: white;
 }
 
@@ -94,9 +91,9 @@
   .icon {
     display: block;
   }
-  .nav ul li {
+  /* .nav ul li {
     padding: 0 15px;
-  }
+  } */
   .nav ul li a {
     display: inline-block;
     padding: 12px;
@@ -114,17 +111,21 @@
   .opened {
     max-height: 800px;
     padding: 15px 0;
-    transition: all 0.5s;
+    transition: all 1s;
     display: flex;
   }
   .opened ul {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
   }
 }
 
 @media screen and (max-width: 450px) {
   .logo a {
     font-size: 1rem;
+  }
+  .header {
+    padding: 0.5rem;
   }
 }

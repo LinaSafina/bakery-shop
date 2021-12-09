@@ -1,13 +1,14 @@
 .footer {
-  height: 19rem;
+  /* height: 19rem; */
   background-color: #fec5bb;
+  grid-area: 'footer';
 }
 
 .footer > div {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  height: 100%;
+  /* align-items: center; */
+  /* height: 90%; */
   width: 90%;
   margin: auto;
 }
@@ -15,7 +16,7 @@
 .footer__content {
   display: flex;
   flex-direction: column;
-  height: 90%;
+  /* height: 90%; */
 }
 /* .footer__content > div {
   margin-left: 1rem;
@@ -54,9 +55,9 @@ h4 ~ a:hover {
 }
 
 @media screen and (max-width: 470px) {
-  .footer {
+  /* .footer {
     height: 16rem;
-  }
+  } */
   .footer > div {
     font-size: 0.9rem;
     width: 95%;

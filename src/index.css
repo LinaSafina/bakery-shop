@@ -15,11 +15,22 @@ body {
   color: #343a40;
   position: relative;
   font-family: 'Comfortaa', cursive;
+  display: grid;
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
 }
 
-.content-wrapper {
+/* .content-wrapper {
   min-height: calc(100vh - 17rem);
+  grid-area: 'main';
+} */
+
+.main {
+  grid-area: 'main';
 }
+
 .centered {
   margin: 5rem auto;
   text-align: center;
@@ -83,36 +94,3 @@ body {
 .add:active {
   background-color: #f28482;
 }
-
-/* .btn {
-  text-decoration: none;
-  background-color: teal;
-  color: white;
-  border-radius: 4px;
-  padding: 0.75rem 1.5rem;
-  border: 1px solid teal;
-  cursor: pointer;
-}
-
-.btn:hover,
-.btn:active {
-  background-color: #11acac;
-  border-color: #11acac;
-}
-
-.btn--flat {
-  cursor: pointer;
-  font: inherit;
-  color: teal;
-  border: none;
-  background-color: none;
-  text-decoration: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-}
-
-.btn--flat:hover,
-.btn--flat:active {
-  background-color: teal;
-  color: white;
-} */

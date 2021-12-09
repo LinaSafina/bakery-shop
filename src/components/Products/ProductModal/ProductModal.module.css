@@ -56,3 +56,14 @@
 .product-modal label {
   margin: 0.25rem;
 }
+
+/* .product-modal__description {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .product-modal__description {
+    max-height: 100px;
+  }
+} */

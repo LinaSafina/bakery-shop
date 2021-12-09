@@ -28,7 +28,7 @@ const ProductModal = (props) => {
         </div>
         <div>
           <h2>{name}</h2>
-          <p>{description}</p>
+          <p className={classes['product-modal__description']}>{description}</p>
           <h3>${price}</h3>
           <form
             onSubmit={submitProductAmountHandler}
