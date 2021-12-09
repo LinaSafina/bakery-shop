@@ -18,7 +18,7 @@ body {
 }
 
 .content-wrapper {
-  min-height: calc(100vh - 18rem);
+  min-height: calc(100vh - 17rem);
 }
 .centered {
   margin: 5rem auto;

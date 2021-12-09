@@ -14,8 +14,9 @@ const HomePage = (props) => {
           <MainBanner />
           <Layout>
             <HomePageDescription />
+
+            <CategoryCards categories={props.categories} />
           </Layout>
-          <CategoryCards categories={props.categories} />
         </Fragment>
       )}
     </Fragment>

@@ -13,7 +13,9 @@ const PageFooter = () => {
         </div>
         <div className={classes.footer__content}>
           <p>Have a question?</p>
-          <p>We're always here to lend a helping hand.</p>
+          <p>
+            We're always here to lend <br />a helping hand.
+          </p>
           <p>
             Cosumer Care Team hours are
             <br /> Monday-Friday, 9am - 5pm EST

@@ -42,22 +42,24 @@ const Cart = () => {
   });
   return (
     <section className={classes.cart}>
-      {cartData}
-      <div className={classes['cart__total']}>
-        <h2>Total</h2>
-        <span>${cartCtx.totalPrice.toFixed(2)}</span>
-      </div>
-      <div className={classes['cart__actions']}>
-        {hasItems && (
-          <button className={'button add'} onClick={orderProductHandler}>
-            Order
-          </button>
-        )}
-        {hasItems && (
-          <button className={'button cancel'} onClick={clearCartHandler}>
-            Clear
-          </button>
-        )}
+      <div className={classes['cart__wrapper']}>
+        {cartData}
+        <div className={classes['cart__total']}>
+          <h2>Total</h2>
+          <span>${cartCtx.totalPrice.toFixed(2)}</span>
+        </div>
+        <div className={classes['cart__actions']}>
+          {hasItems && (
+            <button className={'button add'} onClick={orderProductHandler}>
+              Order
+            </button>
+          )}
+          {hasItems && (
+            <button className={'button cancel'} onClick={clearCartHandler}>
+              Clear
+            </button>
+          )}
+        </div>
       </div>
     </section>
   );

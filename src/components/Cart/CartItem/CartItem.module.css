@@ -6,6 +6,12 @@
   border-bottom: 1px solid #343a40;
 }
 
+.cart-item__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
 .cart-item__actions button {
   color: #343a40;
   font-size: 1rem;
@@ -30,4 +36,10 @@
   padding: 0.2rem 0.5rem;
   border: 1px solid #343a40;
   border-radius: 15%;
+}
+
+@media screen and (max-width: 650px) {
+  .cart-item__card h2 {
+    font-size: 1rem;
+  }
 }

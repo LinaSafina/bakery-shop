@@ -66,35 +66,47 @@ const MainNavigation = () => {
           <li>
             {!isLoggedIn && (
               <NavLink to='/auth' activeClassName={classes.active}>
-                Login
+                <Icons
+                  name='login'
+                  color='#343a40'
+                  size='28'
+                  className='button-left-panel'
+                />
               </NavLink>
             )}
             {isLoggedIn && (
               <Link to='/auth' onClick={logoutHandler}>
-                Logout
+                <Icons
+                  name='logout'
+                  color='#343a40'
+                  size='32'
+                  className='button-left-panel'
+                />
               </Link>
             )}
           </li>
           <li>
-            <NavLink to='/cart' activeClassName={classes.active}>
-              Cart
-            </NavLink>
-            <span className={cartBadgeClasses}>{totalAmount}</span>
+            <div className={classes.cart}>
+              <NavLink to='/cart' activeClassName={classes.active}>
+                <Icons
+                  name='cart'
+                  color='#343a40'
+                  size='32'
+                  className='button-left-panel'
+                />
+              </NavLink>
+              <span className={cartBadgeClasses}>{totalAmount}</span>
+            </div>
+          </li>
+          <li className={classes.icon} onClick={toggleMenuHandler}>
+            <Icons
+              name='nav'
+              color='#fff'
+              size='32'
+              className='button-left-panel'
+            />
           </li>
         </ul>
-      </div>
-
-      <div
-        className={classes.icon}
-        htmlFor='checkbox'
-        onClick={toggleMenuHandler}
-      >
-        <Icons
-          name='nav'
-          color='#fff'
-          size='32'
-          className='button-left-panel'
-        />
       </div>
     </header>
   );

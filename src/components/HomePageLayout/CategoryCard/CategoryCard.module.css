@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: #fae1dd;
-  width: 25%;
+  width: 20%;
   overflow: hidden;
 }
 
@@ -35,4 +35,10 @@
   -webkit-box-shadow: 1px 4px 19px 3px rgba(180, 114, 184, 0.28);
   -moz-box-shadow: 1px 4px 19px 3px rgba(180, 114, 184, 0.28);
   box-shadow: 1px 4px 19px 3px rgba(180, 114, 184, 0.28);
+}
+
+@media screen and (max-width: 650px) {
+  .category-card {
+    width: 33.3%;
+  }
 }

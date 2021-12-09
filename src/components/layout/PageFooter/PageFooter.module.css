@@ -1,5 +1,5 @@
 .footer {
-  height: 18rem;
+  height: 19rem;
   background-color: #fec5bb;
 }
 
@@ -17,6 +17,9 @@
   flex-direction: column;
   height: 90%;
 }
+/* .footer__content > div {
+  margin-left: 1rem;
+} */
 
 .footer__content p {
   margin: 0.5rem;
@@ -48,4 +51,17 @@ h4 + a {
 
 h4 ~ a:hover {
   color: white;
+}
+
+@media screen and (max-width: 470px) {
+  .footer {
+    height: 16rem;
+  }
+  .footer > div {
+    font-size: 0.9rem;
+    width: 95%;
+  }
+  .footer__content:nth-of-type(2) {
+    font-size: 0.75rem;
+  }
 }

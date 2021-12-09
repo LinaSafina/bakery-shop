@@ -5,7 +5,7 @@
   text-align: center;
   justify-content: space-between;
   width: 30%;
-  min-width: 350px;
+  /* min-width: 350px; */
   margin: 1rem;
   border-radius: 10%;
   border: 2px solid #fec5bb;
@@ -43,4 +43,17 @@
   -webkit-box-shadow: 1px 4px 19px 3px rgba(180, 114, 184, 0.28);
   -moz-box-shadow: 1px 4px 19px 3px rgba(180, 114, 184, 0.28);
   box-shadow: 1px 4px 19px 3px rgba(180, 114, 184, 0.28);
+}
+
+@media screen and (max-width: 982px) {
+  .product-card {
+    width: 45%;
+    /* min-width: 100px; */
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .product-card {
+    width: 100%;
+  }
 }

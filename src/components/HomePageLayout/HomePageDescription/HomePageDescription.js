@@ -1,6 +1,8 @@
+import classes from './HomePageDescription.module.css';
+
 const HomePageDescription = () => {
   return (
-    <div>
+    <div className={classes.description}>
       <h2>Why us?</h2>
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting

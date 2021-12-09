@@ -31,6 +31,7 @@
 .icons ul {
   list-style: none;
   display: flex;
+  align-items: center;
   margin: 0;
   padding: 0;
 }
@@ -56,11 +57,18 @@
   color: white;
 }
 
+.cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 4rem;
+}
+
 .cart-badge {
   border: 1px solid #343a40;
-  border-radius: 10%;
-  padding: 0.4rem 0.4rem;
-  margin-left: 0.5rem;
+  border-radius: 20%;
+  padding: 0.1rem 0.4rem;
+  /* margin-left: 0.5rem; */
 }
 
 .animated {
@@ -92,11 +100,11 @@
   .nav ul li a {
     display: inline-block;
     padding: 12px;
-    /* Добавьте ниже свои пользовательские стили, чтобы изменить отображение ссылок */
     color: #bc4749;
     text-decoration: none;
-    /* letter-spacing: 0.05em; */
+    letter-spacing: 0.05em;
   }
+
   .nav a:hover,
   .nav a:active,
   .nav a.active {
@@ -112,5 +120,11 @@
   .opened ul {
     display: flex;
     flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .logo a {
+    font-size: 1rem;
   }
 }
