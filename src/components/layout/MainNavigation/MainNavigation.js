@@ -35,12 +35,16 @@ const MainNavigation = () => {
     setIsMenuOpened((prevState) => !isMenuOpened);
   };
 
+  const closeModalHandler = () => {
+    setIsMenuOpened(false);
+  };
+
   const navClasses = `${classes.nav} ${isMenuOpened ? classes.opened : ''}`;
 
   return (
     <header className={classes.header}>
       <h3 className={classes.logo}>
-        <Link to='/'>
+        <Link to='/' onClick={closeModalHandler}>
           Candy
           <br />
           Museum
@@ -50,17 +54,29 @@ const MainNavigation = () => {
       <nav className={navClasses}>
         <ul>
           <li>
-            <NavLink to='/products' activeClassName={classes.active}>
+            <NavLink
+              to='/products'
+              activeClassName={classes.active}
+              onClick={closeModalHandler}
+            >
               Products
             </NavLink>
           </li>
           <li>
-            <NavLink to='/delivery' activeClassName={classes.active}>
+            <NavLink
+              to='/delivery'
+              activeClassName={classes.active}
+              onClick={closeModalHandler}
+            >
               Delivery
             </NavLink>
           </li>
           <li>
-            <NavLink to='/contacts' activeClassName={classes.active}>
+            <NavLink
+              to='/contacts'
+              activeClassName={classes.active}
+              onClick={closeModalHandler}
+            >
               Contacts
             </NavLink>
           </li>
@@ -70,7 +86,11 @@ const MainNavigation = () => {
         <ul>
           <li>
             {!isLoggedIn && (
-              <NavLink to='/auth' activeClassName={classes.active}>
+              <NavLink
+                to='/auth'
+                activeClassName={classes.active}
+                onClick={closeModalHandler}
+              >
                 <Icons
                   name='login'
                   color='#343a40'
@@ -80,7 +100,11 @@ const MainNavigation = () => {
               </NavLink>
             )}
             {isLoggedIn && (
-              <Link to='/auth' onClick={logoutHandler}>
+              <Link
+                to='/auth'
+                onClick={logoutHandler}
+                onClick={closeModalHandler}
+              >
                 <Icons
                   name='logout'
                   color='#343a40'
@@ -92,7 +116,11 @@ const MainNavigation = () => {
           </li>
           <li>
             <div className={classes.cart}>
-              <NavLink to='/cart' activeClassName={classes.active}>
+              <NavLink
+                to='/cart'
+                activeClassName={classes.active}
+                onClick={closeModalHandler}
+              >
                 <Icons
                   name='cart'
                   color='#343a40'
