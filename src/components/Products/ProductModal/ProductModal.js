@@ -52,7 +52,7 @@ const ProductModal = (props) => {
             </button>
           </form>
           <button className={'cancel button'} onClick={props.onCancel}>
-            Cancel
+            Close
           </button>
         </div>
       </div>
