@@ -17,6 +17,7 @@ const MainNavigation = () => {
   const logoutHandler = () => {
     authCtx.logout();
     history.push('/auth');
+    closeModalHandler();
     return;
   };
 
@@ -100,11 +101,7 @@ const MainNavigation = () => {
               </NavLink>
             )}
             {isLoggedIn && (
-              <Link
-                to='/auth'
-                onClick={logoutHandler}
-                onClick={closeModalHandler}
-              >
+              <Link to='/auth' onClick={logoutHandler}>
                 <Icons
                   name='logout'
                   color='#343a40'

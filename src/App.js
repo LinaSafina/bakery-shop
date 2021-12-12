@@ -11,7 +11,6 @@ import Delivery from './pages/Delivery';
 import Contacts from './pages/Contacts';
 import { getAllCategories } from './helpers/api';
 import useHttp from './hooks/useHttp';
-import { CartProvider } from './store/cart-context';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -30,45 +29,42 @@ function App() {
       setIsLoading(false);
     }
   }, [data]);
+
   return (
     <Fragment>
-      <CartProvider>
-        {/* <div className='content-wrapper'> */}
-        <MainNavigation />
-        <main className='main'>
-          <Switch>
-            <Route path='/' exact>
-              <HomePage categories={data} isLoading={isLoading} />
+      <MainNavigation />
+      <main className='main'>
+        <Switch>
+          <Route path='/' exact>
+            <HomePage categories={data} isLoading={isLoading} />
+          </Route>
+          {!isLoading && (
+            <Route path='/products'>
+              <AllProducts categories={data} isLoading={isLoading} />
             </Route>
-            {!isLoading && (
-              <Route path='/products'>
-                <AllProducts categories={data} isLoading={isLoading} />
-              </Route>
-            )}
+          )}
 
-            <Route path='/auth'>
-              <Auth />
-            </Route>
+          <Route path='/auth'>
+            <Auth />
+          </Route>
 
-            <Route path='/cart'>
-              <CartPage />
-            </Route>
+          <Route path='/cart'>
+            <CartPage />
+          </Route>
 
-            <Route path='/contacts'>
-              <Contacts />
-            </Route>
+          <Route path='/contacts'>
+            <Contacts />
+          </Route>
 
-            <Route path='/delivery'>
-              <Delivery />
-            </Route>
-            <Route path='*'>
-              <NotFound />
-            </Route>
-          </Switch>
-        </main>
-        {/* </div> */}
-        <PageFooter />
-      </CartProvider>
+          <Route path='/delivery'>
+            <Delivery />
+          </Route>
+          <Route path='*'>
+            <NotFound />
+          </Route>
+        </Switch>
+      </main>
+      <PageFooter />
     </Fragment>
   );
 }

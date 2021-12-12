@@ -3,9 +3,3 @@
   justify-content: space-around;
   flex-wrap: wrap;
 }
-
-/* @media screen and (max-width: 620px) {
-  .category-cards {
-    flex-wrap: wrap;
-  }
-} */

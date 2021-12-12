@@ -10,7 +10,6 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  /* height: 100%; */
   width: 100%;
   background-color: #f8edeb;
   color: #343a40;
@@ -29,11 +28,6 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
-/* .content-wrapper {
-  min-height: calc(100vh - 17rem);
-  grid-area: 'main';
-} */
-
 .main {
   grid-area: 'main';
 }
@@ -44,12 +38,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.focused {
-  font-size: 3rem;
-  font-weight: bold;
-  color: white;
 }
 
 .title {
@@ -66,13 +54,14 @@ body {
 }
 
 .button {
-  width: 4.5rem;
-  height: 2rem;
+  width: 5rem;
+  height: 2.5rem;
   background-color: transparent;
   border-radius: 10%;
   cursor: pointer;
   border: 1px solid #bc4749;
-  margin: 0.2rem;
+  margin: 0.3rem;
+  font-size: 1.2rem;
 }
 
 .button:hover,

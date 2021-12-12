@@ -6,11 +6,7 @@
   align-items: center;
   background-color: transparent;
   border-radius: 10%;
-}
-
-.product-modal > div {
-  padding: 0.5rem;
-  overflow: none;
+  width: 100%;
 }
 
 .form {
@@ -19,6 +15,10 @@
 
 .product-modal div:nth-of-type(2) {
   margin: 0 1rem;
+}
+
+.image {
+  width: 100%;
 }
 
 .image img {
@@ -56,14 +56,3 @@
 .product-modal label {
   margin: 0.25rem;
 }
-
-/* .product-modal__description {
-  max-height: 150px;
-  overflow-y: auto;
-}
-
-@media screen and (max-width: 768px) {
-  .product-modal__description {
-    max-height: 100px;
-  }
-} */
