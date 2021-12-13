@@ -33,9 +33,11 @@ const getData = async (requestUrl, images) => {
 export const getAllProducts = async () => {
   return await getData(`${firebaseUrl}/products.json`, allProductsImages);
 };
+
 export const getAllCategories = async () => {
   return await getData(`${firebaseUrl}/categories.json`, homePageImages);
 };
+
 export const getOneCategory = async (category) => {
   return await getData(
     `${firebaseUrl}/products.json?orderBy="category"&equalTo="${category}"`,

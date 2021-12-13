@@ -13,6 +13,7 @@ const ProductList = (props) => {
 
   const { sendRequest, data } = useHttp(props.data.function);
   const categoryData = props.data.category;
+
   useEffect(() => {
     sendRequest(categoryData);
   }, [sendRequest, categoryData]);

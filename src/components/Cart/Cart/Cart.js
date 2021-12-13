@@ -40,6 +40,7 @@ const Cart = () => {
   const cartData = cartCtx.items.map((item) => {
     return <CartItem item={item} key={item.id} />;
   });
+
   return (
     <section className={classes.cart}>
       <div className={classes['cart__products']}>

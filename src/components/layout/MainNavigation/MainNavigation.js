@@ -51,7 +51,6 @@ const MainNavigation = () => {
           Museum
         </Link>
       </h3>
-      {/* <input type='checkbox' id='checkbox' /> */}
       <nav className={navClasses}>
         <ul>
           <li>

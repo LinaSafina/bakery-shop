@@ -82,6 +82,7 @@ const AuthForm = () => {
   const toggleButtonHandler = () => {
     setIsLogin((prevState) => !isLogin);
   };
+
   return (
     <section className={classes.auth}>
       <h1>{isLogin ? 'Login' : 'Sign up'}</h1>
