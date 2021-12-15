@@ -39,6 +39,7 @@
   .modal {
     width: 90%;
     left: 5%;
+    max-height: 85vh;
   }
 }
 
