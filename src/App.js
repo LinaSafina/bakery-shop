@@ -2,16 +2,17 @@ import { Route, Switch } from 'react-router-dom';
 import PageFooter from './components/layout/PageFooter/PageFooter';
 import HomePage from './pages/HomePage';
 import MainNavigation from './components/layout/MainNavigation/MainNavigation';
-import AllProducts from './pages/AllProducts';
-import CartPage from './pages/CartPage';
-import Auth from './pages/Auth';
-import { Fragment, useEffect, useState } from 'react';
-import './App.css';
+import React, { Fragment, Suspense, useEffect, useState } from 'react';
 import Delivery from './pages/Delivery';
 import Contacts from './pages/Contacts';
 import { getAllCategories } from './helpers/api';
 import useHttp from './hooks/useHttp';
 import NotFound from './pages/NotFound';
+import Loading from './components/layout/Loading/Loading';
+
+const AllProducts = React.lazy(() => import('./pages/AllProducts'));
+const CartPage = React.lazy(() => import('./pages/CartPage'));
+const Auth = React.lazy(() => import('./pages/Auth'));
 
 function App() {
   const { sendRequest, data } = useHttp(getAllCategories);
@@ -34,35 +35,37 @@ function App() {
     <Fragment>
       <MainNavigation />
       <main className='main'>
-        <Switch>
-          <Route path='/' exact>
-            <HomePage categories={data} isLoading={isLoading} />
-          </Route>
-          {!isLoading && (
-            <Route path='/products'>
-              <AllProducts categories={data} isLoading={isLoading} />
+        <Suspense fallback={<Loading />}>
+          <Switch>
+            <Route path='/' exact>
+              <HomePage categories={data} isLoading={isLoading} />
             </Route>
-          )}
+            {!isLoading && (
+              <Route path='/products'>
+                <AllProducts categories={data} isLoading={isLoading} />
+              </Route>
+            )}
 
-          <Route path='/auth'>
-            <Auth />
-          </Route>
+            <Route path='/auth'>
+              <Auth />
+            </Route>
 
-          <Route path='/cart'>
-            <CartPage />
-          </Route>
+            <Route path='/cart'>
+              <CartPage />
+            </Route>
 
-          <Route path='/contacts'>
-            <Contacts />
-          </Route>
+            <Route path='/contacts'>
+              <Contacts />
+            </Route>
 
-          <Route path='/delivery'>
-            <Delivery />
-          </Route>
-          <Route path='*'>
-            <NotFound />
-          </Route>
-        </Switch>
+            <Route path='/delivery'>
+              <Delivery />
+            </Route>
+            <Route path='*'>
+              <NotFound />
+            </Route>
+          </Switch>
+        </Suspense>
       </main>
       <PageFooter />
     </Fragment>
