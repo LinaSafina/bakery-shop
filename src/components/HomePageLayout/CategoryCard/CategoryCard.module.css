@@ -3,23 +3,22 @@
   flex-direction: column;
   cursor: pointer;
   justify-content: space-between;
-  align-items: center;
   background-color: #fae1dd;
   width: 20%;
-  overflow: hidden;
 }
 
 .category-card > div {
-  /* display: inline-block; */
   overflow: hidden;
+  width: 100%;
+  text-align: center;
 }
 
 .category-card img {
-  /* width: 12rem; */
   object-fit: cover;
   height: 12rem;
   transition: 1s;
   display: block;
+  width: 100%;
 }
 
 .category-card span {
