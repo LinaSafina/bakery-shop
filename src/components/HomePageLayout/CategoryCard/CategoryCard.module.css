@@ -1,0 +1,44 @@
+.category-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fae1dd;
+  width: 20%;
+  overflow: hidden;
+}
+
+.category-card > div {
+  /* display: inline-block; */
+  overflow: hidden;
+}
+
+.category-card img {
+  /* width: 12rem; */
+  object-fit: cover;
+  height: 12rem;
+  transition: 1s;
+  display: block;
+}
+
+.category-card span {
+  display: inline-block;
+  padding: 0.5rem 0;
+}
+
+.category-card img:hover {
+  transform: scale(1.2);
+}
+
+.category-card:hover {
+  -webkit-box-shadow: 1px 4px 19px 3px rgba(180, 114, 184, 0.28);
+  -moz-box-shadow: 1px 4px 19px 3px rgba(180, 114, 184, 0.28);
+  box-shadow: 1px 4px 19px 3px rgba(180, 114, 184, 0.28);
+}
+
+@media screen and (max-width: 650px) {
+  .category-card {
+    width: 33.3%;
+  }
+}
