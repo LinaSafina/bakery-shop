@@ -1,24 +1,22 @@
 import classes from './MainNavigation.module.css';
 import { NavLink, Link, useHistory } from 'react-router-dom';
-import { useContext, useEffect, useState } from 'react';
-import AuthContext from '../../../store/auth-context';
-import CartContext from '../../../store/cart-context';
-import { useSelector} from 'react-redux';
+import {useEffect, useState } from 'react';
+import { useDispatch, useSelector} from 'react-redux';
 import Icons from '../Icons';
+import { authActions } from '../../../store/auth-slice';
 
 const MainNavigation = () => {
-  const authCtx = useContext(AuthContext);
-  // const cartCtx = useContext(CartContext);
-  const cartTotalAmount= useSelector(state=>state.totalAmount)
+  const isLoggedIn = useSelector(state=>state.auth.isLoggedIn);
+  const cartTotalAmount= useSelector(state=>state.cart.totalAmount)
+  const dispatch = useDispatch()
   const cartItems = useSelector(state=>state.items)
-  const isLoggedIn = authCtx.isLoggedIn;
+
   const history = useHistory();
   const [isMenuOpened, setIsMenuOpened] = useState(false);
-  // const totalAmount = cart.totalAmount;
   const [isBtnAnimated, setIsBtnAnimated] = useState(false);
 
   const logoutHandler = () => {
-    authCtx.logout();
+    dispatch(authActions.logout())
     history.push('/auth');
     closeModalHandler();
     return;

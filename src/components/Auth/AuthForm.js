@@ -1,10 +1,11 @@
-import { useState, useRef, useContext } from 'react';
-import AuthContext from '../../store/auth-context';
-import { useHistory } from 'react-router';
-import classes from './AuthForm.module.css';
+import { useState, useRef } from "react";
+import { useHistory } from "react-router";
+import classes from "./AuthForm.module.css";
+import { authActions } from "../../store/auth-slice";
+import { useDispatch } from "react-redux";
 
 const AuthForm = () => {
-  const authCtx = useContext(AuthContext);
+  const dispatch = useDispatch();
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
   const [isLogin, setIsLogin] = useState(false);
@@ -15,7 +16,7 @@ const AuthForm = () => {
 
   //Validation
   const validateInputEmail = (input) => {
-    return input.trim().length > 7 && input.includes('@');
+    return input.trim().length > 7 && input.includes("@");
   };
   const validateInputPassword = (input) => {
     return input.trim().length > 5;
@@ -44,33 +45,34 @@ const AuthForm = () => {
       let requestUrl;
       if (isLogin) {
         requestUrl =
-          'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCFGHri0Xo-TPaq3aKL3N4uKuf3zzdsToc';
+          "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCFGHri0Xo-TPaq3aKL3N4uKuf3zzdsToc";
       } else {
         requestUrl =
-          'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCFGHri0Xo-TPaq3aKL3N4uKuf3zzdsToc';
+          "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCFGHri0Xo-TPaq3aKL3N4uKuf3zzdsToc";
       }
       fetch(requestUrl, {
-        method: 'POST',
+        method: "POST",
         body: JSON.stringify({
           email: enteredEmail,
           password: enteredPassword,
           returnSecureToken: true,
         }),
-        headers: { 'Content-type': 'application/json' },
+        headers: { "Content-type": "application/json" },
       })
         .then((response) => {
           return response.json();
         })
         .then((data) => {
           if (data.error) {
-            throw new Error(data.error.message || 'Something went wrong');
+            throw new Error(data.error.message || "Something went wrong");
           }
-
-          authCtx.login(data.idToken, enteredEmail);
-          if (history?.location?.state?.prevPage === '/cart') {
+          dispatch(
+            authActions.login({ token: data.idToken, user: enteredEmail })
+          );
+          if (history?.location?.state?.prevPage === "/cart") {
             history.goBack(-1);
           } else {
-            history.push('/');
+            history.push("/");
           }
         })
         .catch((e) => alert(e));
@@ -85,33 +87,33 @@ const AuthForm = () => {
 
   return (
     <section className={classes.auth}>
-      <h1>{isLogin ? 'Login' : 'Sign up'}</h1>
+      <h1>{isLogin ? "Login" : "Sign up"}</h1>
       <form onSubmit={submitHandler} noValidate>
-        <div className={classes['auth__control']}>
-          <label htmlFor='email'>Your Email</label>
-          <input type='email' id='email' required ref={emailInputRef} />
+        <div className={classes["auth__control"]}>
+          <label htmlFor="email">Your Email</label>
+          <input type="email" id="email" required ref={emailInputRef} />
           {isEmailInvalid && <span>Email is invalid</span>}
         </div>
 
-        <div className={classes['auth__control']}>
-          <label htmlFor='password'>Your Password</label>
+        <div className={classes["auth__control"]}>
+          <label htmlFor="password">Your Password</label>
           <input
-            type='password'
-            id='password'
+            type="password"
+            id="password"
             required
             ref={passwordInputRef}
           />
           {isPasswordInvalid && <span>Password is invalid</span>}
         </div>
-        <div className={classes['auth__actions']}>
-          {!isLoading && <button>{isLogin ? 'Login' : 'Sign up'}</button>}
+        <div className={classes["auth__actions"]}>
+          {!isLoading && <button>{isLogin ? "Login" : "Sign up"}</button>}
           {isLoading && <p>Sending a request...</p>}
           <button
-            type='button'
-            className={classes['auth__toggle']}
+            type="button"
+            className={classes["auth__toggle"]}
             onClick={toggleButtonHandler}
           >
-            {isLogin ? 'Create a new account' : 'Login with existing account'}
+            {isLogin ? "Create a new account" : "Login with existing account"}
           </button>
         </div>
       </form>
