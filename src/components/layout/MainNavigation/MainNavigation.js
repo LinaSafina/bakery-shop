@@ -3,15 +3,18 @@ import { NavLink, Link, useHistory } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../../store/auth-context';
 import CartContext from '../../../store/cart-context';
+import { useSelector} from 'react-redux';
 import Icons from '../Icons';
 
 const MainNavigation = () => {
   const authCtx = useContext(AuthContext);
-  const cartCtx = useContext(CartContext);
+  // const cartCtx = useContext(CartContext);
+  const cartTotalAmount= useSelector(state=>state.totalAmount)
+  const cartItems = useSelector(state=>state.items)
   const isLoggedIn = authCtx.isLoggedIn;
   const history = useHistory();
   const [isMenuOpened, setIsMenuOpened] = useState(false);
-  const { totalAmount } = cartCtx;
+  // const totalAmount = cart.totalAmount;
   const [isBtnAnimated, setIsBtnAnimated] = useState(false);
 
   const logoutHandler = () => {
@@ -26,7 +29,7 @@ const MainNavigation = () => {
     setTimeout(() => {
       setIsBtnAnimated(false);
     }, 500);
-  }, [cartCtx.items]);
+  }, [cartItems]);
 
   const cartBadgeClasses = `${classes['cart-badge']} ${
     isBtnAnimated ? classes.animated : ''
@@ -124,7 +127,7 @@ const MainNavigation = () => {
                   className='button-left-panel'
                 />
               </NavLink>
-              <span className={cartBadgeClasses}>{totalAmount}</span>
+              <span className={cartBadgeClasses}>{cartTotalAmount}</span>
             </div>
           </li>
           <li className={classes.icon} onClick={toggleMenuHandler}>

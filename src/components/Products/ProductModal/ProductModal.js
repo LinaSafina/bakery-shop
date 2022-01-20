@@ -1,11 +1,12 @@
 import classes from './ProductModal.module.css';
 import { useRef, useContext } from 'react';
 import CartContext from '../../../store/cart-context';
+import { useDispatch } from 'react-redux';
 
 const ProductModal = (props) => {
   const { name, price, description, image } = props.data;
   const productAmountRef = useRef();
-  const cartCtx = useContext(CartContext);
+  const dispatch = useDispatch()
 
   const submitProductAmountHandler = (event) => {
     event.preventDefault();
@@ -17,7 +18,8 @@ const ProductModal = (props) => {
         ...props.data,
         amount: +currentInputValue,
       };
-      cartCtx.addItem(productItem);
+      dispatch({type: 'ADD', item: productItem})
+     
     }
   };
   return (

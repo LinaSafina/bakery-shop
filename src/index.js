@@ -3,17 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { AuthProvider } from './store/auth-context';
-import { CartProvider } from './store/cart-context';
+import { Provider } from 'react-redux';
+import cartStore from './store';
 
 import { BrowserRouter } from 'react-router-dom';
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
-      <CartProvider>
+      <Provider store={cartStore}>
         <BrowserRouter>
           <App />
         </BrowserRouter>
-      </CartProvider>
+        </Provider>
     </AuthProvider>
   </React.StrictMode>,
   document.getElementById('root')
